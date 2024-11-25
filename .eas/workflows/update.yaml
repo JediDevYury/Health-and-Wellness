@@ -16,7 +16,7 @@ jobs:
         run: yarn lint
 
   publish-update:
-    needs: tsc-lint
+    needs: [tsc-lint]
     steps:
       - uses: eas/checkout
       - uses: eas/use_npm_token
