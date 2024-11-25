@@ -15,11 +15,10 @@ jobs:
       - name: Lint Check
         run: yarn lint
 
-  publish-update:
+  update:
+    type: update
     needs: [tsc-lint]
     steps:
       - uses: eas/checkout
       - uses: eas/use_npm_token
       - uses: eas/install_node_modules
-      - name: Publish Update
-        run: eas update --non-interactive
