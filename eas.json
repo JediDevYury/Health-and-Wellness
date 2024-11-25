@@ -1,0 +1,40 @@
+{
+  "cli": {
+    "version": ">= 12.5.4",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "ios-simulator": {
+      "extends": "development",
+      "ios": {
+        "image": "latest",
+        "simulator": true
+      },
+      "channel": "ios-simulator"
+    },
+    "android-simulator": {
+      "extends": "development",
+      "android": {
+        "image": "latest",
+        "simulator": true
+      },
+      "channel": "android-simulator"
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development"
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview"
+    },
+    "production": {
+      "autoIncrement": true,
+      "channel": "production"
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
