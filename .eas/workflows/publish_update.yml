@@ -1,0 +1,19 @@
+name: Publish update
+
+on:
+  push:
+    branches: ['*']
+
+jobs:
+  tsc-lint:
+    steps:
+      - uses: eas/checkout
+      - uses: eas/use_npm_token
+      - uses: eas/install_node_modules
+      - name: tsc
+        run: yarn tsc
+      - name: lint
+        run: yarn lint
+  updates:
+    needs: tsc-lint
+    type: update
