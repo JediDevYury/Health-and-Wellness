@@ -22,3 +22,7 @@ jobs:
       - uses: eas/checkout
       - uses: eas/use_npm_token
       - uses: eas/install_node_modules
+      - uses: eas/configure_eas_update
+      - run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          npx eas-cli update --branch main --auto --non-interactive --message "$COMMIT_MESSAGE"
